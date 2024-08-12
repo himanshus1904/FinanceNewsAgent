@@ -1,2 +1,2 @@
-.env
+src/news_agents/tools/.env
 __pycache__/

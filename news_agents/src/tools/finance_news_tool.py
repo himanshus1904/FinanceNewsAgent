@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 from langchain.agents import tool
 from dotenv import load_dotenv
+import streamlit as st
 load_dotenv()
 
 
@@ -34,8 +35,9 @@ def fetch_news():
         'content-type': 'application/json',
         'x-api-key': api_key
     }
-
+    st.write("Before Request")
     response = requests.post(endpoint, headers=headers, json=data)
+    st.write("Got request")
     if response.status_code == 200:
         output_data = response.json()
         articles = output_data.get('results', [])

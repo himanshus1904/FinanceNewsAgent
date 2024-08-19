@@ -2,6 +2,7 @@ from crewai import Task
 from config.agents import news_fetcher, news_formatter
 import requests, json
 from bs4 import BeautifulSoup
+import streamlit as st
 
 # Fetch News Task
 fetch_news_task = Task(

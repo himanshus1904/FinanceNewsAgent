@@ -1,5 +1,5 @@
 from crewai import Task
-from news_agents.src.news_agents.config.agents import news_fetcher,news_formatter
+from config.agents import news_fetcher, news_formatter
 import requests, json
 from bs4 import BeautifulSoup
 
@@ -53,6 +53,7 @@ format_news_task = Task(
     expected_output='Formatted news articles in JSON format.',
     agent=news_formatter,
     task_func=format_fetched_news,
+
 )
 
 

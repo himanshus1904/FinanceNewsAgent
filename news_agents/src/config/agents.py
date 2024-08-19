@@ -1,8 +1,7 @@
 import os
 from crewai import Agent
-import google.generativeai as genai
-from news_agents.src.news_agents.tools.finance_news_tool import fetch_news
-from news_agents.src.news_agents.tools.summarize_news_tool import summarize
+from tools.finance_news_tool import fetch_news
+from tools.summarize_news_tool import summarize
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 load_dotenv()
@@ -12,6 +11,7 @@ news_fetcher = Agent(
     role='News Fetcher',
     goal='Fetch the latest finance-related news articles.',
     tools=[fetch_news],
+    verbose=True,
     backstory=(
         "You are a seasoned journalist with a keen eye for finance news, "
         "and you always ensure that the latest information is brought to light."
@@ -23,6 +23,7 @@ news_formatter = Agent(
     role='News Formatter',
     goal='Format the fetched news articles according to the given rules using Google Gemini for summarization.',
     tools=[summarize],
+    verbose=True,
     backstory=(
         "You specialize in using cutting-edge AI to generate concise and accurate news summaries "
         "for Indian Finance and Stock Market news. Add the news_source_url and the article date in the json"

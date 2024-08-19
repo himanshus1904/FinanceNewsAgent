@@ -22,11 +22,12 @@ def generate_finance_news():
     try:
         parts = raw_data.split("```json", 1)
         formatted_string = parts[1].strip()[:-3]
+        print(formatted_string)
         data = json.loads(formatted_string)
     except (IndexError, json.JSONDecodeError) as e:
         st.error(f"Error processing data: {str(e)}")
         return None
-
+    print("Done")
     # Save the result to a JSON file
     with open('formatted_finance_news.json', 'w') as f:
         json.dump(data, f, indent=4)
@@ -40,27 +41,6 @@ def generate_finance_news():
 
     return updated_data  # Return the updated JSON data to display in the Streamlit interface
 
-
-# # Streamlit UI
-# st.title("Finance News Generator")
-# st.write("""
-# Click the button below to generate the latest finance news.
-# The result will be saved in a JSON file and displayed below.
-# """)
-#
-# # Button to generate finance news
-# if st.button("Generate Finance News"):
-#     news_data = generate_finance_news()
-#
-#     if news_data:
-#         st.write("Formatted Finance News:")
-#         st.json(news_data)  # Display the JSON data
-#
-#         # Display images if available
-#         for entry in news_data:
-#             if 'img_url' in entry:
-#                 for img_url in entry['img_url']:
-#                     st.image(img_url, use_column_width=True)
 
 if __name__ == '__main__':
     st.title("Finance News Generator")

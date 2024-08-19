@@ -39,7 +39,7 @@ $ crewai run
 ```
 or
 ```bash
-poetry run news_agents
+poetry run src
 ```
 
 This command initializes the news_agents Crew, assembling the agents and assigning them tasks as defined in your configuration.

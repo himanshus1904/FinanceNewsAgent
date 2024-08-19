@@ -21,7 +21,7 @@ def fetch_news():
         "query": query,
         "type": "neural",
         "useAutoprompt": True,
-        "numResults": 10,
+        "numResults": 18,
         "endPublishedDate": start_published_date,
         "includeDomains": ["rediff.com", "moneycontrol.com", "reuters.com", "www.cnbc.com", "www.businesstoday.in", "www.livemint.com", "economictimes.indiatimes.com"],
         "contents": {

@@ -22,7 +22,7 @@ def fetch_news():
         "query": query,
         "type": "neural",
         "useAutoprompt": True,
-        "numResults": 18,
+        "numResults": 10,
         "endPublishedDate": start_published_date,
         "includeDomains": ["rediff.com", "moneycontrol.com", "reuters.com", "www.cnbc.com", "www.businesstoday.in", "www.livemint.com", "economictimes.indiatimes.com"],
         "contents": {
@@ -35,9 +35,7 @@ def fetch_news():
         'content-type': 'application/json',
         'x-api-key': api_key
     }
-    st.write("Before Request")
     response = requests.post(endpoint, headers=headers, json=data)
-    st.write("Got request", response.status_code)
     if response.status_code == 200:
         output_data = response.json()
         articles = output_data.get('results', [])
@@ -51,7 +49,6 @@ def fetch_news():
                 "news_source_url": article.get('url', ''),
                 "article_date": article.get('publishedDate', '')
             })
-        st.write(formatted_articles)
         return formatted_articles
     else:
         raise Exception(f"Failed to fetch news: {response.status_code} {response.text}")

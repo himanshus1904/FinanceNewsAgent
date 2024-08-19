@@ -3,6 +3,7 @@ import google.generativeai as genai
 from langchain.agents import tool
 from dotenv import load_dotenv
 load_dotenv()
+import streamlit as st
 
 
 @tool("Summarize")
@@ -25,9 +26,10 @@ def summarize(headline_prompt, content_prompt):
         f"Headline prompt: {headline_prompt}\n\n"
         f"Content prompt: {content_prompt}\n"
     )
-
+    st.write("Before Request")
     response = model.generate_content(prompt)
     response_text = response.text.strip()
+    st.write("After Response")
     if "\n" in response_text:
         headline, summary = response_text.split("\n", 1)
     else:

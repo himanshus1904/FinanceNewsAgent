@@ -2,6 +2,7 @@ from crewai import Task
 from config.agents import news_fetcher, news_formatter
 import requests, json
 from bs4 import BeautifulSoup
+import streamlit as st
 
 # Fetch News Task
 fetch_news_task = Task(
@@ -17,6 +18,7 @@ fetch_news_task = Task(
 def format_fetched_news(fetched_articles):
     """Process the fetched articles and format them according to the given rules."""
     formatted_articles = []
+    st.write("Enetered formatter")
     for article in fetched_articles:
         headline_prompt = article.get('headline', '')
         content_prompt = article.get('news_content', '')
@@ -34,7 +36,7 @@ def format_fetched_news(fetched_articles):
             "article_date": article.get('article_date', '')  # Map article date
         }
         formatted_articles.append(formatted_article)
-    print("***************")
+    st.write("***************")
     print(formatted_articles)
     return formatted_articles
 

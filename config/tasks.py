@@ -2,7 +2,6 @@ from crewai import Task
 from config.agents import news_fetcher, news_formatter
 import requests, json
 from bs4 import BeautifulSoup
-import streamlit as st
 
 # Fetch News Task
 fetch_news_task = Task(
@@ -62,7 +61,6 @@ def image_extractor():
     with open('formatted_finance_news.json', 'r') as file:
         data = json.load(file)
     for entry in data:
-        st.write("Entry ", entry)
         url = entry['news_source_url']
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')

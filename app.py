@@ -57,7 +57,6 @@ if __name__ == '__main__':
             st.write("Formatted Finance News:")
             st.json(news_data)  # Display the JSON data
 
-            # Display images if available
             for entry in news_data:
                 if 'img_url' in entry:
                     for img_url in entry['img_url']:

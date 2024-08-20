@@ -4,7 +4,6 @@ import json
 from datetime import datetime
 from langchain.agents import tool
 from dotenv import load_dotenv
-import streamlit as st
 load_dotenv()
 
 
@@ -14,7 +13,6 @@ def fetch_news():
     api_key = os.getenv("EXO_KEY")
     endpoint = "https://api.exa.ai/search"
     query = "Indian News Related to Stock Markets and Finance"
-    # start_published_date = "2024-08-12"
     start_published_date = datetime.now().strftime("%Y-%m-%d")  # The start date for published news
 
     data = {

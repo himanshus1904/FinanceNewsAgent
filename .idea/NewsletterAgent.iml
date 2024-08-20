@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/news_env" />
       <excludeFolder url="file://$MODULE_DIR$/news_venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.11 (NewsletterAgent)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.11 (FinanceNewsAgent)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
